@@ -28,7 +28,8 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     }),
     onSubmit: async (values) => {
       try {
-        const response :any= await dispatch(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const response : any= await dispatch(
           loginAsync({ email: values.email, password: values.password })
         );
     
@@ -39,7 +40,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     
         dispatch(loginSuccess({ email: values.email }));
     
-        await onLoginSuccess();
+        await Promise.resolve(onLoginSuccess());
       } catch (error) {
         console.error("Error during login:", error);
       }

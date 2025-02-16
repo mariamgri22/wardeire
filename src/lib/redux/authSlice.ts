@@ -54,7 +54,6 @@ interface AuthState {
   loading: "idle" | "pending" | "succeeded" | "failed";
   error: string | null;
   loginMethod: "register" | "login" ;
-  profileData: any;
 }
 
 const initialState: AuthState = {
@@ -63,7 +62,6 @@ const initialState: AuthState = {
   loading: "idle",
   error: null,
   loginMethod: "register",
-  profileData: null,
 };
 
 const authSlice = createSlice({
